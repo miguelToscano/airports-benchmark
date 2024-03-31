@@ -1,1 +1,3 @@
 rust/target
+rust/target/debug
+go/.env
