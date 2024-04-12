@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/monitor"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 
@@ -35,6 +36,7 @@ func start() {
 	app := fiber.New()
 	app.Use(logger.New())
 
+	app.Get("/metrics", monitor.New(monitor.Config{Title: "Airports Service Metrics"}))
 	app.Get("/v1/flights", flightsController.GetFlights)
 	app.Get("/v1/flights/:id", flightsController.GetFlight)
 

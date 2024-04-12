@@ -1,4 +1,4 @@
-package domain
+package services
 
 import "airports/internal/flights/repositories"
 

@@ -1,10 +1,12 @@
 package services
 
-import "airports/internal/flights/domain"
+import (
+	"airports/internal/flights/repositories"
+)
 
 type FlightsRepository interface {
-	GetFlights() ([]domain.Flight, error)
-	GetFlight(id uint64) (*domain.FlightAggregate, error)
+	GetFlights() (*repositories.GetFlightsOutput, error)
+	GetFlight(id uint64) (*repositories.GetFlightOutput, error)
 }
 
 type FlightsService struct {
